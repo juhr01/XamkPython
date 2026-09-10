@@ -41,7 +41,7 @@ def Osio1():
 #mutta niitä käydään läpi seuraavalla kerralla tarkemmin.
 #Ymmärsin kuitenkin miten käyttäjän antamaa syötettä
 #voidaan käyttää ohjelmassa esim. laskutoimituksien suorittamiseen. 
-#
+#Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
 Osio1()
 
 #Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
