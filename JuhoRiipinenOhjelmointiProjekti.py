@@ -3,6 +3,18 @@
 #Osion 1 funktio
 def Osio1():
   print("-- Osio 1 --")
+  print("Plus-laskin")
+  
+  print("Anna luku 1: ")
+  input1 = int(input())
+  
+  print("Anna luku 2: ")
+  input2= int(input())
+  
+  sumOfInputs = input1 + input2
+  
+  print(f"Lukujen summa on {sumOfInputs}")
+  
 
 #Osion 2 funktio
 #def Osio2():
