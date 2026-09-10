@@ -32,15 +32,8 @@ def Osio1():
 #def Osio5():
 #  print("-- Osio 5 --")
 
-#Kirjoita loppuosioiden funktiot samalla kaavalla...
-
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
-#Tässä osiossa käsiteltiin esiteltiin muuttujat, input ja output.
-#Muuttujat ja niiden tyypit jäivät vielä hieman epäselviksi,
-#mutta niitä käydään läpi seuraavalla kerralla tarkemmin.
-#Ymmärsin kuitenkin miten käyttäjän antamaa syötettä
-#voidaan käyttää ohjelmassa esim. laskutoimituksien suorittamiseen. 
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
 Osio1()
 
