@@ -13,7 +13,7 @@ def Osio1():
   
   sumOfInputs = input1 + input2
   
-  print(f"Lukujen summa on {sumOfInputs}")
+  print("Lukujen summa on: " + str(sumOfInputs))
   
 
 #Osion 2 funktio
@@ -41,6 +41,7 @@ def Osio1():
 #mutta niitä käydään läpi seuraavalla kerralla tarkemmin.
 #Ymmärsin kuitenkin miten käyttäjän antamaa syötettä
 #voidaan käyttää ohjelmassa esim. laskutoimituksien suorittamiseen. 
+#
 Osio1()
 
 #Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
