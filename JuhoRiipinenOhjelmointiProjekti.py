@@ -1,39 +1,79 @@
 #Ohjelmointiprojekti - Juho Riipinen
 
+#Tarkastetaan, onko käyttäjän syöte kokonaisluku
+def kysyKokonaisluku(syote):
+  while True:
+    try:
+      return int(input(syote))
+    except ValueError:
+      print("Anna vain kokonaislukuja!")
+      print("")
+
+#Tarkastetaan, onko käyttäjän syöte ollenkaan luku
+def kysyLuku(syote):
+  while True:
+    try:
+      return float(input(syote))
+    except ValueError:
+      print("Anna vain numeroita!")
+      print("")  
+
 #Osion 1 funktio
 def Osio1():
+
   print("")
   print("Plus-laskin")
   
-  print("Anna luku 1: ")
-  input1 = int(input())
+  luku1 = kysyKokonaisluku("Anna luku 1: ")
+  luku2= kysyKokonaisluku("Anna luku 2: ")
+
+  lukujenSumma = luku1 + luku2
   
-  print("Anna luku 2: ")
-  input2= int(input())
-  
-  sumOfInputs = input1 + input2
-  
-  print("Lukujen summa on: " + str(sumOfInputs))
   print("")
-  
+  print("Lukujen summa on: " + str(lukujenSumma))
+  print("")
 
 #Osion 2 funktio
-#def Osio2():
-#  print("-- Osio 2 --")
+def Osio2():
+  
+  def tuenLaskenta():
+    tuki = kysyLuku("Anna tuen määrä: ")
+    
+    tukiVuodessa = kuukaudet * tuki
+    
+    print("Opintotukea vuodessa: " + str(tukiVuodessa))
+  
+  print("")
+  print("Opintotukilaskuri")
+  
+  while True:
+    kuukaudet = kysyKokonaisluku("Anna kokonaisten tukikuukausien määrä: ")
+  
+    if (kuukaudet < 1):
+      print("Anna vähintään yksi kuukausi")
+    elif (kuukaudet > 12):
+      print("Anna korkeintaan 12 kuukautta")
+    else:
+      break
+  
+  tuenLaskenta()
 
 #Osion 3 funktio
 def Osio3():
   print("")
   print("Toiminnot:")
-  print("1 - Ohjeet")
-  print("2 - Plus-laskin")
-  valinta = int(input("Valitse toiminto 1-2: "))
+  print("1 - Plus-laskin")
+  print("2 - Opintotukilaskuri")
+  print("3 - Ohjeet")
+  valinta = int(input("Valitse toiminto 1-3: "))
   print("")
   
   if (valinta == 1):
-    Osio3()
-  elif (valinta == 2):
     Osio1()
+  elif (valinta == 2):
+    Osio2()
+  elif (valinta == 3):
+    Osio3()
 
 #Osion 4 funktio
 #def Osio4():
@@ -48,7 +88,9 @@ def Osio3():
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
 #Osio1()
 
-#Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
+#Osio ei ollut sinäänsä vaikea, mutta haasteita ilmeni toiminnoissa, jotka estävät ohjelman kaatumisen vääränlaisen käyttäjäsyötteen jälkeen.
+#Eniten aikaa meni funktioiden luontiin, jotka tarkastavat, onko syöte kokonaisluku tai numero. Lisäksi haastavahkoa oli tarkastaa, oliko kuukaudet 1-12 ilman, että ohjelma pysähtyy tai toistaa itseään.
+#Etsin tietoa ongelmien ratkaisuun mm. Stack Overflow -sivulta sekä Claudelta.
 #Osio2()
 
 #En juurikaan oppinut mitään uutta, kertasin vain koodin kirjoittamista/Pythonin syntaksia.
