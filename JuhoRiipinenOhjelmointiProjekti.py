@@ -3,7 +3,6 @@
 #Osion 1 funktio
 def Osio1():
   print("")
-  print("-- Osio 1 --")
   print("Plus-laskin")
   
   print("Anna luku 1: ")
@@ -25,11 +24,9 @@ def Osio1():
 #Osion 3 funktio
 def Osio3():
   print("")
-  print("-- Osio 3 --")
   print("Toiminnot:")
   print("1 - Ohjeet")
   print("2 - Plus-laskin")
-  print("")
   valinta = int(input("Valitse toiminto 1-2: "))
   print("")
   
@@ -54,7 +51,7 @@ def Osio3():
 #Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
 #Osio2()
 
-#Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
+#En juurikaan oppinut mitään uutta, kertasin vain koodin kirjoittamista/Pythonin syntaksia.
 Osio3()
 
 #Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
