@@ -65,7 +65,8 @@ def Osio3():
   print("1 - Plus-laskin")
   print("2 - Opintotukilaskuri")
   print("3 - Ohjeet")
-  valinta = int(input("Valitse toiminto 1-3: "))
+  print("4 - Nelilaskin")
+  valinta = int(input("Valitse toiminto 1-4: "))
   print("")
   
   if (valinta == 1):
@@ -74,10 +75,24 @@ def Osio3():
     Osio2()
   elif (valinta == 3):
     Osio3()
+  elif (valinta == 4):
+    Osio4()
 
 #Osion 4 funktio
-#def Osio4():
-#  print("-- Osio 4 --")
+def Osio4():
+  luku1 = kysyKokonaisluku("Anna kokonaisluku 1: ")
+  luku2 = kysyKokonaisluku("Anna kokonaisluku 2: ")
+  
+  print("")
+  print(str(luku1) + " + " + str(luku2) + " = " + str(luku1 + luku2))
+  print(str(luku1) + " - " + str(luku2) + " = " + str(luku1 - luku2))
+  print(str(luku2) + " - " + str(luku1) + " = " + str(luku2 - luku1))
+  print(str(luku1) + " * " + str(luku2) + " = " + str(luku1 * luku2))
+  print(str(luku1) + " / " + str(luku2) + " = " + str(luku1 / luku2))
+  print(str(luku2) + " / " + str(luku1) + " = " + str(luku2 / luku1))
+  print(str(luku1) + " % " + str(luku2) + " = " + str(luku1 % luku2))
+  print(str(luku2) + " % " + str(luku1) + " = " + str(luku2 % luku1))
+  
 
 #Osion 5 funktio
 #def Osio5():
@@ -96,7 +111,7 @@ def Osio3():
 #En juurikaan oppinut mitään uutta, kertasin vain koodin kirjoittamista/Pythonin syntaksia.
 Osio3()
 
-#Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
+#En oppinut tässäkään osiossa uusia asioita, kertasin vain operaattoreiden käyttöä.
 #Osio4()
 
 #Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
