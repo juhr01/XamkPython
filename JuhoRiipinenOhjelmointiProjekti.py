@@ -66,7 +66,8 @@ def Osio3():
   print("2 - Opintotukilaskuri")
   print("3 - Ohjeet")
   print("4 - Nelilaskin")
-  valinta = int(input("Valitse toiminto 1-4: "))
+  print("5 - Alkuluvut")
+  valinta = int(input("Valitse toiminto 1-5: "))
   print("")
   
   if (valinta == 1):
@@ -77,6 +78,8 @@ def Osio3():
     Osio3()
   elif (valinta == 4):
     Osio4()
+  elif (valinta == 5):
+    Osio5()
 
 #Osion 4 funktio
 def Osio4():
@@ -95,17 +98,30 @@ def Osio4():
   
 
 #Osion 5 funktio
-#def Osio5():
-#  print("-- Osio 5 --")
+def Osio5():
+  print("Alkuluvut")
+  luku = kysyKokonaisluku("Anna kokonaisluku tarkastaaksesi, onko se alkuluku: ")
 
+  if luku <= 1:
+    print("Luku " + str(luku) + " ei ole alkuluku")
+  elif luku > 1:
+    for i in range(2, luku):
+      if (luku % i) == 0:
+        print("Luku " + str(luku) + " ei ole alkuluku")
+        break
+    else:
+      print("Luku " + str(luku) + " on alkuluku")
+  else:
+    print("Luku " + str(luku) + " ei ole alkuluku")
+    
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
 #Osio1()
 
 #Osio ei ollut sinäänsä vaikea, mutta haasteita ilmeni toiminnoissa, jotka estävät ohjelman kaatumisen vääränlaisen käyttäjäsyötteen jälkeen.
-#Eniten aikaa meni funktioiden luontiin, jotka tarkastavat, onko syöte kokonaisluku tai numero. Lisäksi haastavahkoa oli tarkastaa, oliko kuukaudet 1-12 ilman, että ohjelma pysähtyy tai toistaa itseään.
-#Etsin tietoa ongelmien ratkaisuun mm. Stack Overflow -sivulta sekä Claudelta.
+#Eniten aikaa meni funktioiden luontiin, jotka tarkastavat, onko syöte kokonaisluku tai numero. Päädyin tekemään funktiot, koska lukuja tullaan kysymään lähes kaikissa ohjelman osissa. Lisäksi haastavahkoa oli tarkastaa, oliko kuukaudet 1-12 ilman, että ohjelma pysähtyy tai toistaa itseään.
+#Etsin tietoa ongelmien ratkaisuun Pythonin dokumentaatiosta (https://docs.python.org/3/tutorial/errors.html#handling-exceptions).
 #Osio2()
 
 #En juurikaan oppinut mitään uutta, kertasin vain koodin kirjoittamista/Pythonin syntaksia.
@@ -114,5 +130,5 @@ Osio3()
 #En oppinut tässäkään osiossa uusia asioita, kertasin vain operaattoreiden käyttöä.
 #Osio4()
 
-#Kommentoi osiossa käsiteltyjä asioita ja kerro mitä opit osiossa ja/tai mikä jäi epäselväksi.
+#Osio ei ollut vaikea, mutta laskin alkulukuja ohjelmalla ensimmäistä kertaa. Tietoa etsin Programiz-sivulta (https://www.programiz.com/python-programming/examples/prime-number).
 #Osio5()
