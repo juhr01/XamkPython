@@ -35,28 +35,26 @@ def Osio1():
 
 #Osion 2 funktio
 def Osio2():
-  
-  def tuenLaskenta():
-    tuki = kysyLuku("Anna tuen määrä: ")
-    
-    tukiVuodessa = kuukaudet * tuki
-    
-    print("Opintotukea vuodessa: " + str(tukiVuodessa))
-  
+
   print("")
   print("Opintotukilaskuri")
+  
+  tuki = kysyLuku("Anna tuen määrä euroina: ")
   
   while True:
     kuukaudet = kysyKokonaisluku("Anna kokonaisten tukikuukausien määrä: ")
   
     if (kuukaudet < 1):
       print("Anna vähintään yksi kuukausi")
+      print("")
     elif (kuukaudet > 12):
       print("Anna korkeintaan 12 kuukautta")
+      print("")
     else:
       break
   
-  tuenLaskenta()
+  tukiVuodessa = kuukaudet * tuki   
+  print("Opintotukea vuodessa: " + str(tukiVuodessa) + " euroa")
 
 #Osion 3 funktio
 def Osio3():
