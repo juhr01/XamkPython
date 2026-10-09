@@ -4,7 +4,9 @@
 def kysyKokonaisluku(syote):
   while True:
     try:
+      #Jos syöte on kokonaisluku, palautetaan kokonaisluku
       return int(input(syote))
+    #Jos syöte ei ole kokonaisluku, tulee ValueError ja tulostetaan viesti
     except ValueError:
       print("Anna vain kokonaislukuja!")
       print("")
@@ -13,7 +15,9 @@ def kysyKokonaisluku(syote):
 def kysyLuku(syote):
   while True:
     try:
+      #Jos syöte on integer- tai float-luku, palautetaan luku
       return float(input(syote))
+    #Jos syöte ei ole luku, tulee ValueError ja tulostetaan viesti
     except ValueError:
       print("Anna vain numeroita!")
       print("")  
@@ -24,11 +28,14 @@ def Osio1():
   print("")
   print("Plus-laskin")
   
+  #Kysytään käyttäjältä luvut, ja tallennetaan ne muuttujiin "luku1" ja "luku2"
   luku1 = kysyKokonaisluku("Anna luku 1: ")
   luku2= kysyKokonaisluku("Anna luku 2: ")
 
+  #Lasketaan syötettujen lukujen summa ja tallennetaan se muuttujaan lukujenSumma
   lukujenSumma = luku1 + luku2
   
+  #Tulostetaan summa
   print("")
   print("Lukujen summa on: " + str(lukujenSumma))
   print("")
@@ -39,25 +46,35 @@ def Osio2():
   print("")
   print("Opintotukilaskuri")
   
+  #Kysytään käyttäjältä opintotuen määrä float-lukuna ja tallennetaan se muuttujaan "tuki"
   tuki = kysyLuku("Anna tuen määrä euroina: ")
   
+  #Kysytään käyttäjältä loopissa tukikuukausien määrää niin pitkään, että ehdot täyttyvät
   while True:
+    #Kysytään tukikuukausien määrä kokonaislukuna ja tallennetaan se muuttujaan "kuukaudet"
     kuukaudet = kysyKokonaisluku("Anna kokonaisten tukikuukausien määrä: ")
   
+    #Jos syöte on alle 1, tulostetaan viesti ja aloitetaan loop alusta
     if (kuukaudet < 1):
       print("Anna vähintään yksi kuukausi")
       print("")
+    #Jos syöte on yli 12, tulostetaan viesti ja aloitetaan loop alusta
     elif (kuukaudet > 12):
       print("Anna korkeintaan 12 kuukautta")
       print("")
+    #Jos aiemmat ehdot eivät täyty, eli syöte on kokonaisluku väliltä 1-12, poistutaan while-loopista
     else:
       break
   
+  #Kerrotaan opintotuen määrä tukikuukausilla ja tallennetaan tulo muuttujaan "tukiVuodessa"
   tukiVuodessa = kuukaudet * tuki   
+
+  #Tulostetaan tulo
   print("Opintotukea vuodessa: " + str(tukiVuodessa) + " euroa")
 
 #Osion 3 funktio
 def Osio3():
+  #Tulostetaan "käyttöliittymä"
   print("")
   print("Toiminnot:")
   print("1 - Plus-laskin")
@@ -65,25 +82,38 @@ def Osio3():
   print("3 - Ohjeet")
   print("4 - Nelilaskin")
   print("5 - Alkuluvut")
-  valinta = int(input("Valitse toiminto 1-5: "))
-  print("")
   
-  if (valinta == 1):
-    Osio1()
-  elif (valinta == 2):
-    Osio2()
-  elif (valinta == 3):
-    Osio3()
-  elif (valinta == 4):
-    Osio4()
-  elif (valinta == 5):
-    Osio5()
+  #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
+  #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
+  while True:
+    valinta = kysyKokonaisluku("Valitse toiminto 1-5: ")
+    print("")
+  
+    #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
+    if (valinta == 1):
+      Osio1()
+      break
+    elif (valinta == 2):
+      Osio2()
+      break
+    elif (valinta == 3):
+      Osio3()
+      break
+    elif (valinta == 4):
+      Osio4()
+      break
+    elif (valinta == 5):
+      Osio5()
+      break
 
 #Osion 4 funktio
 def Osio4():
+  print("Nelilaskin")
+  #Kysytään käyttäjältä kaksi kokonaislukua ja tallennetaan ne muuttujiin
   luku1 = kysyKokonaisluku("Anna kokonaisluku 1: ")
   luku2 = kysyKokonaisluku("Anna kokonaisluku 2: ")
   
+  #Tulostetaan lukujen summa, erotus, tulo, osamäärä ja jakojäännös
   print("")
   print(str(luku1) + " + " + str(luku2) + " = " + str(luku1 + luku2))
   print(str(luku1) + " - " + str(luku2) + " = " + str(luku1 - luku2))
@@ -98,11 +128,16 @@ def Osio4():
 #Osion 5 funktio
 def Osio5():
   print("Alkuluvut")
+  #Kysytään käyttäjältä luku ja tallennetaa se muuttujaan
   luku = kysyKokonaisluku("Anna kokonaisluku tarkastaaksesi, onko se alkuluku: ")
 
+  #Jos luku on alle 1 tai 1, se ei ole alkuluku
   if luku <= 1:
     print("Luku " + str(luku) + " ei ole alkuluku")
+  #Jos luku on suurempi kuin 1, tehdään laskutoimitus tarkastamiseksi
   elif luku > 1:
+    #Jaetaan annettu luku luvusta 2 eteenpäin itseensä asti
+    #Jos jakojäännös on missä tahansa jakolaskussa 0, luku ei ole alkuluku, sillä alkuluku on ainoastaan jaollinen luvulla 1 ja itsellään
     for i in range(2, luku):
       if (luku % i) == 0:
         print("Luku " + str(luku) + " ei ole alkuluku")
