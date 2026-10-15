@@ -82,11 +82,12 @@ def Osio3():
   print("3 - Ohjeet")
   print("4 - Nelilaskin")
   print("5 - Alkuluvut")
+  print("6 - Nigerialaiset IP-osoitteet")
   
   #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
   #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
   while True:
-    valinta = kysyKokonaisluku("Valitse toiminto 1-5: ")
+    valinta = kysyKokonaisluku("Valitse toiminto 1-6: ")
     print("")
   
     #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
@@ -104,6 +105,9 @@ def Osio3():
       break
     elif (valinta == 5):
       Osio5()
+      break
+    elif (valinta == 6):
+      Osio6()
       break
 
 #Osion 4 funktio
@@ -144,9 +148,41 @@ def Osio5():
         break
     else:
       print("Luku " + str(luku) + " on alkuluku")
-  else:
-    print("Luku " + str(luku) + " ei ole alkuluku")
-    
+      
+#Osion 6 funktio
+def Osio6():
+  print("Nigerialaiset IP-osoitteet")
+  print("")
+  
+  #Dictionary ip-osoitteista
+  ipAddresses = {
+  "1.172.152.0 / 21": "Finland",
+  "31.204.64.96 / 27": "Finland",
+  "31.204.65.64 / 27": "Finland",
+  "41.57.120.0 / 22": "Nigeria",
+  "31.204.66.96 / 27": "Finland",
+  "41.58.0.0 / 16": "Nigeria",
+  "31.217.192.0 / 21": "Finland",
+  "32.42.29.136 / 29": "Finland",
+  "32.106.148.0 / 24": "Finland",
+  "41.67.128.0 / 18": "Nigeria",
+  "32.106.181.0 / 24": "Finland",
+  "32.106.182.0 / 24": "Finland"
+  }
+  
+  #Alustetaan tyhjä lista nigerialaisille ip-osoitteille
+  nigerianIPs = []
+  
+  #Käydään silmukassa läpi jokainen dictionaryn avain-arvopari
+  #Jos parissa arvo on "Nigeria", lisätään parin avain listaan nigerianIPs
+  for ip, maa in ipAddresses.items():
+    if maa == "Nigeria":
+      nigerianIPs.append(ip)
+      
+  #Tulostetaan silmukan avulla jokainen ip-osoite listassa omalle rivilleen
+  for i in nigerianIPs:
+    print(i)
+
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
@@ -165,3 +201,6 @@ Osio3()
 
 #Osio ei ollut vaikea, mutta laskin alkulukuja ohjelmalla ensimmäistä kertaa. Tietoa etsin Programiz-sivulta (https://www.programiz.com/python-programming/examples/prime-number).
 #Osio5()
+
+#Ensimmäistä kertaa käytin listoja pythonilla tai dictionaryja koskaan. Arrayta sekä objekteja olen ennenkin käyttänyt JavaScriptillä, joten osion tekeminen oli käytännössä vain kertausta.
+#Osio6()
