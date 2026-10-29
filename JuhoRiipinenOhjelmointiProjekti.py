@@ -1,5 +1,7 @@
 #Ohjelmointiprojekti - Juho Riipinen
 
+import random
+
 #Tarkastetaan, onko käyttäjän syöte kokonaisluku
 def kysyKokonaisluku(syote):
   while True:
@@ -83,11 +85,12 @@ def Osio3():
   print("4 - Nelilaskin")
   print("5 - Alkuluvut")
   print("6 - Nigerialaiset IP-osoitteet")
+  print("7 - Funktiot satunnaisluvuille")
   
   #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
   #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
   while True:
-    valinta = kysyKokonaisluku("Valitse toiminto 1-6: ")
+    valinta = kysyKokonaisluku("Valitse toiminto 1-7: ")
     print("")
   
     #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
@@ -108,6 +111,9 @@ def Osio3():
       break
     elif (valinta == 6):
       Osio6()
+      break
+    elif (valinta == 7):
+      Osio7()
       break
 
 #Osion 4 funktio
@@ -182,6 +188,129 @@ def Osio6():
   #Tulostetaan silmukan avulla jokainen ip-osoite listassa omalle rivilleen
   for i in nigerianIPs:
     print(i)
+    
+#Osion 7 funktio
+def Osio7():
+  print("")
+  print("40 Satunnaislukua väliltä -10/+10:")
+  #Alustetaan tyhjä lista nimeltä luvut
+  luvut = []
+  
+  #Alustetaan muuttuja i nollaksi while-silmukkaa varten
+  i = 0
+  
+  #Arvotaan satunnaislukuja väliltä -10 ja 10 niin pitkään, kuin i on alle 40
+  #Arvotut satunnaisluvut lisätään listaan luvut
+  while i < 40:
+    randomLuku = random.randint(-10, 10)
+    luvut.append(randomLuku)
+    #Lisätään jokaisella kierroksella muuttujaan i yksi
+    i = i + 1
+  
+  #Tulostetaan listasta kaikki luvut
+  for i in luvut:  
+    print(i)
+  
+  #Kutsutaan kaikki osion funktiot
+  Odds(luvut)
+  Evens(luvut)
+  Positives(luvut)
+  Negatives(luvut)
+  HowManyZeros(luvut)
+
+#Funktiolle annetaan parametriksi muuttuja
+def Odds(lista):
+  print("")
+  print("Parittomat luvut:")
+  
+  #Alustetaan tyhjä lista parittomille luvuille
+  parittomatLuvut= []
+  
+  #Käydään läpi parametri-listan jokainen luku
+  for i in lista:
+    #Jos luvun jakojäännös jakaessa kahdella ei ole nolla, on luku pariton
+    if i % 2 != 0:
+      #Lisätään funktion sisäiseen listaan parametri-listan luku
+      parittomatLuvut.append(i)
+  
+  #Tulostetaan jokainen funktion sisäisen listan luku
+  for i in parittomatLuvut:
+    print(i)
+  
+#Funktiolle annetaan parametriksi muuttuja
+def Evens(lista):
+  print("")
+  print("Parilliset luvut:")
+  
+  #Alustetaan tyhjä lista parillisille luvuille
+  parillisetLuvut= []
+  
+  #Käydään läpi parametri-listan jokainen luku
+  for i in lista:
+    #Jos luvun jakojäännös jakaessa kahdella on nolla, on luku parillinen
+    if i % 2 == 0:
+      #Lisätään funktion sisäiseen listaan parametri-listan luku
+      parillisetLuvut.append(i)
+  
+  #Tulostetaan jokainen funktion sisäisen listan luku
+  for i in parillisetLuvut:
+    print(i)
+
+#Funktiolle annetaan parametriksi muuttuja
+def Positives(lista):
+  print("")
+  print("Positiiviset luvut:")
+  
+  #Alustetaan tyhjä lista positiivisille luvuille
+  positiivisetLuvut= []
+  
+  #Käydään läpi parametri-listan jokainen luku
+  for i in lista:
+    #Jos luku on 0 tai suurempi, on luku positiivinen
+    if i >= 0:
+      #Lisätään funktion sisäiseen listaan parametri-listan luku
+      positiivisetLuvut.append(i)
+  
+  #Tulostetaan jokainen funktion sisäisen listan luku
+  for i in positiivisetLuvut:  
+    print(i)
+
+#Funktiolle annetaan parametriksi muuttuja
+def Negatives(lista):
+  print("")
+  print("Negatiiviset luvut:")
+  
+  #Alustetaan tyhjä lista negatiivisille luvuille
+  negatiivisetLuvut= []
+  
+  #Käydään läpi parametri-listan jokainen luku
+  for i in lista:
+    #Jos luku on pienempi kuin 0, on luku negatiivinen
+    if i < 0:
+      #Lisätään funktion sisäiseen listaan parametri-listan luku
+      negatiivisetLuvut.append(i)
+   
+  #Tulostetaan jokainen funktion sisäisen listan luku
+  for i in negatiivisetLuvut:  
+    print(i)
+
+#Funktiolle annetaan parametriksi muuttuja
+def HowManyZeros(lista):
+  print("")
+  print("Nollien lukumäärä:")
+  
+  #Alustetaan nollien lukumäärää kuvaava muuttuja
+  nollat = 0
+  
+  #Käydään läpi parametri-listan jokainen luku
+  for i in lista:
+    #Jos luku on nolla, lisätään muuttujaan nollat yksi
+    if i == 0:
+      nollat = nollat + 1
+    
+  #Tulostetaan nollat-muuttuja
+  print(nollat)
+
 
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
@@ -204,3 +333,6 @@ Osio3()
 
 #Ensimmäistä kertaa käytin listoja pythonilla tai dictionaryja koskaan. Arrayta sekä objekteja olen ennenkin käyttänyt JavaScriptillä, joten osion tekeminen oli käytännössä vain kertausta.
 #Osio6()
+
+#Uusia asioita ei tullut käytyä, tuli vain kerrattua silmukoiden sekä taulukoiden käyttöä.
+#Osio7()
