@@ -86,11 +86,12 @@ def Osio3():
   print("5 - Alkuluvut")
   print("6 - Nigerialaiset IP-osoitteet")
   print("7 - Funktiot satunnaisluvuille")
+  print("8 - ini-Tiedosto")
   
   #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
   #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
   while True:
-    valinta = kysyKokonaisluku("Valitse toiminto 1-7: ")
+    valinta = kysyKokonaisluku("Valitse toiminto 1-8: ")
     print("")
   
     #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
@@ -114,6 +115,9 @@ def Osio3():
       break
     elif (valinta == 7):
       Osio7()
+      break
+    elif (valinta == 8):
+      Osio8()
       break
 
 #Osion 4 funktio
@@ -311,6 +315,31 @@ def HowManyZeros(lista):
   #Tulostetaan nollat-muuttuja
   print(nollat)
 
+#Osion 8 funktio
+def Osio8():
+  print("")
+  
+  #Kysytään käyttäjältä kaikki tiedot .ini-tiedostoa varten ja tallennetaan ne muuttujiin
+  nimi = str(input("Nimi: "))
+  organisaatio = str(input("Organisaatio: "))
+  palvelin = str(input("Palvelin: "))
+  portti = str(input("Portti: "))
+  tiedosto = str(input("Tiedosto: "))
+  ini = str(input("ini-tiedoston nimi, johon tiedot tallennetaan: "))
+  
+  #Avataan/luodaan käyttäjän määrittämä .ini-tiedosto kirjoitustilaan ja määritetään se muuttujaan f 
+  f = open(ini + ".ini", "w")
+  
+  #Kirjoitetaan tiedostoon sisältö käyttäjän antamilla tiedoilla
+  f.write("; last modified 1 April 2001 by John Doe\n""[owner]\n""name=" + nimi + "\n""organization=" + organisaatio + "\n""\n""[database]\n""; use IP address in case network name resolution is not working\n""server=" + palvelin + "\n""port=" + portti + "\n""file='" + tiedosto + "'\n")
+  
+  #Avataan kirjoitettu tiedosto lukutilaan taas määrittämällä se muuttujaan f
+  f = open(ini + ".ini", "r")
+  
+  #Tulostetaan ini-tiedoston sisältö
+  print("")
+  print(f.read())
+  
 
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
@@ -336,3 +365,6 @@ Osio3()
 
 #Uusia asioita ei tullut käytyä, tuli vain kerrattua silmukoiden sekä taulukoiden käyttöä.
 #Osio7()
+
+#Käytin tiedostoja ensimmäistä kertaa Pythonilla. Opin, miten tiedostoja käsitellään ohjelmassa ja miten niiden sisältöä voidaan tarkastella tai muokata. Sain myös palautettua mieleen \n käytön rivinvaihtoon.
+#Osio8()
