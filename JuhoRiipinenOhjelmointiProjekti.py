@@ -2,6 +2,26 @@
 
 import random
 
+#Luokka ipAddress
+class ipAddress:
+  
+  #Luokan konstruktorimetodi
+  def __init__(self, ipAddress, hostName, asn, isp):
+    self.ip= ipAddress
+    self.host = hostName
+    self.asn = asn
+    self.isp = isp
+    
+  #Metodi tietojen tulostamiseksi
+  def printDetails(self):
+    print("")
+    print("IP: " + self.ip + "\n" + "Hostname: " + self.host + "\n" + "ASN: " + self.asn + "\n" + "ISP: " + self.isp)
+    print("")
+    
+
+#Alustetaan taulukko ip-osoitteille (osio 9)
+ipAddresses = []
+
 #Tarkastetaan, onko käyttäjän syöte kokonaisluku
 def kysyKokonaisluku(syote):
   while True:
@@ -31,8 +51,8 @@ def Osio1():
   print("Plus-laskin")
   
   #Kysytään käyttäjältä luvut, ja tallennetaan ne muuttujiin "luku1" ja "luku2"
-  luku1 = kysyKokonaisluku("Anna luku 1: ")
-  luku2= kysyKokonaisluku("Anna luku 2: ")
+  luku1 = kysyKokonaisluku(">Anna luku 1: ")
+  luku2= kysyKokonaisluku(">Anna luku 2: ")
 
   #Lasketaan syötettujen lukujen summa ja tallennetaan se muuttujaan lukujenSumma
   lukujenSumma = luku1 + luku2
@@ -49,12 +69,12 @@ def Osio2():
   print("Opintotukilaskuri")
   
   #Kysytään käyttäjältä opintotuen määrä float-lukuna ja tallennetaan se muuttujaan "tuki"
-  tuki = kysyLuku("Anna tuen määrä euroina: ")
+  tuki = kysyLuku(">Anna tuen määrä euroina: ")
   
   #Kysytään käyttäjältä loopissa tukikuukausien määrää niin pitkään, että ehdot täyttyvät
   while True:
     #Kysytään tukikuukausien määrä kokonaislukuna ja tallennetaan se muuttujaan "kuukaudet"
-    kuukaudet = kysyKokonaisluku("Anna kokonaisten tukikuukausien määrä: ")
+    kuukaudet = kysyKokonaisluku(">Anna kokonaisten tukikuukausien määrä: ")
   
     #Jos syöte on alle 1, tulostetaan viesti ja aloitetaan loop alusta
     if (kuukaudet < 1):
@@ -86,12 +106,13 @@ def Osio3():
   print("5 - Alkuluvut")
   print("6 - Nigerialaiset IP-osoitteet")
   print("7 - Funktiot satunnaisluvuille")
-  print("8 - ini-Tiedosto")
+  print("8 - ini-tiedosto")
+  print("9 - IP-osoite luokka")
   
   #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
   #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
   while True:
-    valinta = kysyKokonaisluku("Valitse toiminto 1-8: ")
+    valinta = kysyKokonaisluku("Valitse toiminto 1-9: ")
     print("")
   
     #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
@@ -102,7 +123,6 @@ def Osio3():
       Osio2()
       break
     elif (valinta == 3):
-      Osio3()
       break
     elif (valinta == 4):
       Osio4()
@@ -119,13 +139,17 @@ def Osio3():
     elif (valinta == 8):
       Osio8()
       break
-
+    elif (valinta == 9):
+      Osio9()
+      break
+    
+    
 #Osion 4 funktio
 def Osio4():
   print("Nelilaskin")
   #Kysytään käyttäjältä kaksi kokonaislukua ja tallennetaan ne muuttujiin
-  luku1 = kysyKokonaisluku("Anna kokonaisluku 1: ")
-  luku2 = kysyKokonaisluku("Anna kokonaisluku 2: ")
+  luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
+  luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
   
   #Tulostetaan lukujen summa, erotus, tulo, osamäärä ja jakojäännös
   print("")
@@ -143,7 +167,7 @@ def Osio4():
 def Osio5():
   print("Alkuluvut")
   #Kysytään käyttäjältä luku ja tallennetaa se muuttujaan
-  luku = kysyKokonaisluku("Anna kokonaisluku tarkastaaksesi, onko se alkuluku: ")
+  luku = kysyKokonaisluku(">Anna kokonaisluku tarkastaaksesi, onko se alkuluku: ")
 
   #Jos luku on alle 1 tai 1, se ei ole alkuluku
   if luku <= 1:
@@ -318,14 +342,15 @@ def HowManyZeros(lista):
 #Osion 8 funktio
 def Osio8():
   print("")
+  print("ini-tiedoston luominen")
   
   #Kysytään käyttäjältä kaikki tiedot .ini-tiedostoa varten ja tallennetaan ne muuttujiin
-  nimi = str(input("Nimi: "))
-  organisaatio = str(input("Organisaatio: "))
-  palvelin = str(input("Palvelin: "))
-  portti = str(input("Portti: "))
-  tiedosto = str(input("Tiedosto: "))
-  ini = str(input("ini-tiedoston nimi, johon tiedot tallennetaan: "))
+  nimi = str(input(">Nimi: "))
+  organisaatio = str(input(">Organisaatio: "))
+  palvelin = str(input(">Palvelin: "))
+  portti = str(input(">Portti: "))
+  tiedosto = str(input(">Tiedosto: "))
+  ini = str(input(">ini-tiedoston nimi, johon tiedot tallennetaan: "))
   
   #Avataan/luodaan käyttäjän määrittämä .ini-tiedosto kirjoitustilaan ja määritetään se muuttujaan f 
   f = open(ini + ".ini", "w")
@@ -339,8 +364,48 @@ def Osio8():
   #Tulostetaan ini-tiedoston sisältö
   print("")
   print(f.read())
-  
 
+#Osion 9 funktio
+def Osio9():
+  print("")
+  print("IP-osoitteen lisääminen")
+  
+  #Kysytään käyttäjältä ip-osoitteita silmukassa
+  while True:
+    ip = str(input(">Syötä IP: "))
+    hostname = str(input(">Syötä hostname: "))
+    asn = str(input(">Syötä ASN: "))
+    isp = str(input(">Syötä ISP: "))
+
+    #Tallennetaan syötteet luokan ipAddress objektiin nimeltä ipObject
+    ipObject = ipAddress(ip, hostname, asn, isp)
+
+    #Lisätään taulukkoon objekti
+    ipAddresses.append(ipObject)
+    
+    #Tulostetaan kaikki objektit taulukossa
+    print("")
+    print("IP-osoitteet:")
+    for i in ipAddresses:
+      i.printDetails()
+    
+    #Kysytään, haluaako käyttäjä syöttää lisää ip-osoitteita
+    while True:
+      
+      #Tallennetaan käyttäjän syöte muutuujaan "jatketaanko"
+      #strip() poistaa välilyönnit
+      #lower() muuttaa syötteen pienaakkosiin
+      jatketaanko = input(">Lisätäänkö uusi IP-osoite? [Y/N]: ").strip()
+      
+      #Jos syöte on joko y tai n, poistutaan silmukasta. Muuten tulostetaan kehote ja kysytään uudelleen.
+      if jatketaanko.lower() in ("y", "n"):
+        break
+      print("Syötä joko Y (Kyllä) tai N (Ei)!")
+    
+    #Jos syöte oli "n" tai "N" poistutaan koko funktiosta takaisin valikkoon
+    if (jatketaanko == "n"):
+      break
+  
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
@@ -352,7 +417,8 @@ def Osio8():
 #Osio2()
 
 #En juurikaan oppinut mitään uutta, kertasin vain koodin kirjoittamista/Pythonin syntaksia.
-Osio3()
+while True:
+  Osio3()
 
 #En oppinut tässäkään osiossa uusia asioita, kertasin vain operaattoreiden käyttöä.
 #Osio4()
@@ -368,3 +434,6 @@ Osio3()
 
 #Käytin tiedostoja ensimmäistä kertaa Pythonilla. Opin, miten tiedostoja käsitellään ohjelmassa ja miten niiden sisältöä voidaan tarkastella tai muokata. Sain myös palautettua mieleen \n käytön rivinvaihtoon.
 #Osio8()
+
+#Olen ennenkin käyttänyt luokkia olio-ohjelmoinnissa, joten osio oli vain kertausta. Ainoa uusi asia tässä vaiheessa oli y/n syöte jatkamista varten. Tietoa etsin StackAbuse-sivulta osoitteesta: https://stackabuse.com/bytes/handling-yes-no-user-input-in-python/.
+#Osio9()
