@@ -46,9 +46,8 @@ def kysyLuku(syote):
 
 #Osion 1 funktio
 def Osio1():
-
   print("")
-  print("Plus-laskin")
+  print("--Plus-laskin--")
   
   #Kysytään käyttäjältä luvut, ja tallennetaan ne muuttujiin "luku1" ja "luku2"
   luku1 = kysyKokonaisluku(">Anna luku 1: ")
@@ -64,9 +63,8 @@ def Osio1():
 
 #Osion 2 funktio
 def Osio2():
-
   print("")
-  print("Opintotukilaskuri")
+  print("--Opintotukilaskuri--")
   
   #Kysytään käyttäjältä opintotuen määrä float-lukuna ja tallennetaan se muuttujaan "tuki"
   tuki = kysyLuku(">Anna tuen määrä euroina: ")
@@ -98,7 +96,7 @@ def Osio2():
 def Osio3():
   #Tulostetaan "käyttöliittymä"
   print("")
-  print("Toiminnot:")
+  print("--Toiminnot--")
   print("1 - Plus-laskin")
   print("2 - Opintotukilaskuri")
   print("3 - Ohjeet")
@@ -146,7 +144,7 @@ def Osio3():
     
 #Osion 4 funktio
 def Osio4():
-  print("Nelilaskin")
+  print("--Nelilaskin--")
   #Kysytään käyttäjältä kaksi kokonaislukua ja tallennetaan ne muuttujiin
   luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
   luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
@@ -165,7 +163,7 @@ def Osio4():
 
 #Osion 5 funktio
 def Osio5():
-  print("Alkuluvut")
+  print("--Alkuluvut--")
   #Kysytään käyttäjältä luku ja tallennetaa se muuttujaan
   luku = kysyKokonaisluku(">Anna kokonaisluku tarkastaaksesi, onko se alkuluku: ")
 
@@ -185,7 +183,7 @@ def Osio5():
       
 #Osion 6 funktio
 def Osio6():
-  print("Nigerialaiset IP-osoitteet")
+  print("--Nigerialaiset IP-osoitteet--")
   print("")
   
   #Dictionary ip-osoitteista
@@ -220,6 +218,7 @@ def Osio6():
 #Osion 7 funktio
 def Osio7():
   print("")
+  print("--Funktiot satunnaisluvuille--")
   print("40 Satunnaislukua väliltä -10/+10:")
   #Alustetaan tyhjä lista nimeltä luvut
   luvut = []
@@ -342,7 +341,7 @@ def HowManyZeros(lista):
 #Osion 8 funktio
 def Osio8():
   print("")
-  print("ini-tiedoston luominen")
+  print("--ini-tiedoston luominen--")
   
   #Kysytään käyttäjältä kaikki tiedot .ini-tiedostoa varten ja tallennetaan ne muuttujiin
   nimi = str(input(">Nimi: "))
@@ -368,7 +367,7 @@ def Osio8():
 #Osion 9 funktio
 def Osio9():
   print("")
-  print("IP-osoitteen lisääminen")
+  print("--IP-osoitteen lisääminen--")
   
   #Kysytään käyttäjältä ip-osoitteita silmukassa
   while True:
@@ -385,7 +384,7 @@ def Osio9():
     
     #Tulostetaan kaikki objektit taulukossa
     print("")
-    print("IP-osoitteet:")
+    print("--IP-osoitteet--")
     for i in ipAddresses:
       i.printDetails()
     
