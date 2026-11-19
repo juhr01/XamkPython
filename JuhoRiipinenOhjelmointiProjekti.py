@@ -1,5 +1,9 @@
 #Ohjelmointiprojekti - Juho Riipinen
 
+#Tuodaan kirjasto psutils
+import psutil
+
+#Tuodaan paketti random
 import random
 
 #Luokka ipAddress
@@ -106,11 +110,12 @@ def Osio3():
   print("7 - Funktiot satunnaisluvuille")
   print("8 - ini-tiedosto")
   print("9 - IP-osoite luokka")
+  print("10 - psutil network")
   
   #Kysytään loputtomassa loopissa käyttältä ohjelman toimintoja
   #Jos valintaa vastaavaa funktiota ei ole, kysytään syötettä uudestaan
   while True:
-    valinta = kysyKokonaisluku("Valitse toiminto 1-9: ")
+    valinta = kysyKokonaisluku(">Valitse toiminto 1-10: ")
     print("")
   
     #Kutsutaan syötettä vastaava funktio ja funktiokutsun jälkeen poistutaan loopista
@@ -139,6 +144,9 @@ def Osio3():
       break
     elif (valinta == 9):
       Osio9()
+      break
+    elif (valinta == 10):
+      Osio10()
       break
     
     
@@ -404,6 +412,38 @@ def Osio9():
     #Jos syöte oli "n" tai "N" poistutaan koko funktiosta takaisin valikkoon
     if (jatketaanko == "n"):
       break
+    
+#Osion 10 funktio
+def Osio10():
+  
+  #Kerrotaan käyttäjälle mahdolliset toiminnot silmukassa, ja jos syöte vastaa toimintoa, tulostetaan halutut tiedot ja poistutaan silmukasta
+  while True:
+    print("--psutil-toiminnot--")
+    print("1 - Järjestelmän verkkostatistiikka")
+    print("2 - Järjestelmän yhteydet")
+    print("3 - Verkkoliitäntöjen ip-osoitteet")
+    print("4 - Tiedot verkkoliitännöistä")
+    
+    valinta = kysyKokonaisluku(">Valitse toiminto 1-4: ")
+    print("")
+    
+    if valinta == 1:
+      print(psutil.net_io_counters(pernic=True))
+      print("")
+      break
+    elif valinta == 2:
+      print(psutil.net_connections(kind="inet"))
+      print("")
+      break
+    elif valinta == 3:
+      print(psutil.net_if_addrs())
+      print("")
+      break
+    elif valinta == 4:
+      print(psutil.net_if_stats())
+      print("")
+      break
+
   
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
@@ -436,3 +476,6 @@ while True:
 
 #Olen ennenkin käyttänyt luokkia olio-ohjelmoinnissa, joten osio oli vain kertausta. Ainoa uusi asia tässä vaiheessa oli y/n syöte jatkamista varten. Tietoa etsin StackAbuse-sivulta osoitteesta: https://stackabuse.com/bytes/handling-yes-no-user-input-in-python/.
 #Osio9()
+
+#Tässä osiossa oli hauskaa hyödyntää kirjastoa uusien ominaisuuksien toteuttamiseksi. Olen ennenkin käyttänyt ohjelmoinnissa komponenttikirjastoja. Piti opetella käyttämään psutil kirjastoa, dokumentaationa käytin https://psutil.readthedocs.io/stable.
+#Osio10()
