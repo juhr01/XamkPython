@@ -22,7 +22,6 @@ class ipAddress:
     print("IP: " + self.ip + "\n" + "Hostname: " + self.host + "\n" + "ASN: " + self.asn + "\n" + "ISP: " + self.isp)
     print("")
     
-
 #Alustetaan taulukko ip-osoitteille (osio 9)
 ipAddresses = []
 
@@ -149,40 +148,28 @@ def Osio3():
       Osio10()
       break
     
-    
 #Osion 4 funktio
 def Osio4():
   print("--Nelilaskin--")
   #Kysytään käyttäjältä kaksi kokonaislukua ja tallennetaan ne muuttujiin
-  #Molemmat luvut kysytään silmukoissa, joista ei poistuta, jos syöte on 0 (koska nollalla ei voi jakaa)
-  while True:
-    luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
+  luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
+  luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
     
-    if luku1 == 0:
-      print("Nollaa ei hyväksytä!")
-      continue
-    else:
-      break
-    
-  while True:
-    luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
-    
-    if luku2 == 0:
-      print("Nollaa ei hyväksytä!")
-      continue
-    else:
-      break
-  
   #Tulostetaan lukujen summa, erotus, tulo, osamäärä ja jakojäännös
+  #Jos jakaja on 0, ei jakolaskuja tai jakojäännöksiä lasketa
   print("")
   print(str(luku1) + " + " + str(luku2) + " = " + str(luku1 + luku2))
   print(str(luku1) + " - " + str(luku2) + " = " + str(luku1 - luku2))
   print(str(luku2) + " - " + str(luku1) + " = " + str(luku2 - luku1))
   print(str(luku1) + " * " + str(luku2) + " = " + str(luku1 * luku2))
-  print(str(luku1) + " / " + str(luku2) + " = " + str(luku1 / luku2))
-  print(str(luku2) + " / " + str(luku1) + " = " + str(luku2 / luku1))
-  print(str(luku1) + " % " + str(luku2) + " = " + str(luku1 % luku2))
-  print(str(luku2) + " % " + str(luku1) + " = " + str(luku2 % luku1))
+  if luku2 != 0:
+    print(str(luku1) + " / " + str(luku2) + " = " + str(luku1 / luku2))
+  if luku1 != 0:
+    print(str(luku2) + " / " + str(luku1) + " = " + str(luku2 / luku1))
+  if luku2 != 0:
+    print(str(luku1) + " % " + str(luku2) + " = " + str(luku1 % luku2))
+  if luku1 != 0:
+    print(str(luku2) + " % " + str(luku1) + " = " + str(luku2 % luku1))
   
 
 #Osion 5 funktio
@@ -460,7 +447,6 @@ def Osio10():
       print("")
       break
 
-  
 #Ylle kirjoitettujen funktioiden kutsut ja kommentti siitä mitä opit kyseisessä osiossa:
 
 #Epäselvyyksiä ei jäänyt tästä osiosta. Haasteita oli eniten syntaksien kanssa, sillä olen tottunut kirjoittamaan JavaScriptiä.
