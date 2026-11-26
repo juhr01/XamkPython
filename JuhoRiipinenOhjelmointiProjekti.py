@@ -154,8 +154,24 @@ def Osio3():
 def Osio4():
   print("--Nelilaskin--")
   #Kysytään käyttäjältä kaksi kokonaislukua ja tallennetaan ne muuttujiin
-  luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
-  luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
+  #Molemmat luvut kysytään silmukoissa, joista ei poistuta, jos syöte on 0 (koska nollalla ei voi jakaa)
+  while True:
+    luku1 = kysyKokonaisluku(">Anna kokonaisluku 1: ")
+    
+    if luku1 == 0:
+      print("Nollaa ei hyväksytä!")
+      continue
+    else:
+      break
+    
+  while True:
+    luku2 = kysyKokonaisluku(">Anna kokonaisluku 2: ")
+    
+    if luku2 == 0:
+      print("Nollaa ei hyväksytä!")
+      continue
+    else:
+      break
   
   #Tulostetaan lukujen summa, erotus, tulo, osamäärä ja jakojäännös
   print("")
